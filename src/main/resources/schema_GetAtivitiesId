@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "Activity": "http://fakerestapi.azurewebsites.net/api/Activities",
+    "type": "object",
+    "properties": {
+        "ID": {
+            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Id",
+            "type": "integer"
+        },
+        "Title": {
+            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Title",
+            "type": "string"
+        },
+        "DueDate": {
+            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/DueDate",
+            "type": "string"
+        },
+        "Completed": {
+            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Completed",
+            "type": "boolean"
+        }
+    }
+}
