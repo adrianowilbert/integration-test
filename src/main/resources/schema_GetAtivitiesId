@@ -1,23 +1,53 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "Activity": "http://fakerestapi.azurewebsites.net/api/Activities",
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
     "type": "object",
+    "title": "The Root Schema",
+    "required": [
+        "ID",
+        "Title",
+        "DueDate",
+        "Completed"
+    ],
     "properties": {
         "ID": {
-            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Id",
-            "type": "integer"
+            "$id": "#/properties/ID",
+            "type": "integer",
+            "title": "The Id Schema",
+            "default": 0,
+            "examples": [
+                30
+            ]
         },
         "Title": {
-            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Title",
-            "type": "string"
+            "$id": "#/properties/Title",
+            "type": "string",
+            "title": "The Title Schema",
+            "default": "",
+            "examples": [
+                "Activity 30"
+            ],
+            "pattern": "^(.*)$"
         },
         "DueDate": {
-            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/DueDate",
-            "type": "string"
+            "$id": "#/properties/DueDate",
+            "type": "string",
+            "title": "The Duedate Schema",
+            "default": "",
+            "examples": [
+                "2019-10-09T18:25:09.8394704+00:00"
+            ],
+            "pattern": "^(.*)$"
         },
         "Completed": {
-            "Activity": "http://fakerestapi.azurewebsites.net/api/Activities/Completed",
-            "type": "boolean"
+            "$id": "#/properties/Completed",
+            "type": "boolean",
+            "title": "The Completed Schema",
+            "default": false,
+            "examples": [
+                true
+            ]
         }
     }
 }
