@@ -8,61 +8,132 @@
     <groupId>ApiFake</groupId>
     <artifactId>FakeRestApi</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>7</source>
-                    <target>7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
+    <name>Template com framework restAssured</name>
+    <description>Template para utilização do framework restAssured em projeto de teste de integração</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <allure.version>2.9.0</allure.version>
+        <allure.report.version>2.10.0</allure.report.version>
+        <helper.version>3.0.0</helper.version>
+        <failsafe.version>2.18.1</failsafe.version>
+        <rest-assured.version>3.1.0</rest-assured.version>
+        <rest-assured.jsonpath.version>3.1.0</rest-assured.jsonpath.version>
+        <aspectj.version>1.9.1</aspectj.version>
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.18.6</lombok.version>
+        <json.simple.version>1.1.1</json.simple.version>
+        <java.faker.version>1.0.1</java.faker.version>
+        <slf4j.version>1.7.26</slf4j.version>
+        <jackson-yaml.version>2.13.0</jackson-yaml.version>
+
+        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+
+        <skipITs>true</skipITs>
+        <skipTests>false</skipTests>
+        <skipUTs>${skipTests}</skipUTs>
+        <surefire.groups></surefire.groups>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>3.0.0</version>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>json-path</artifactId>
-            <version>3.0.7</version>
-            <scope>test</scope>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>${json.simple.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson-yaml.version}</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${rest-assured.jsonpath.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${rest-assured.jsonpath.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
-            <version>2.6.0</version>
+            <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>name.tachenov.ParameterizedJUnitParams</groupId>
+            <artifactId>ParameterizedJUnitParams</artifactId>
+            <version>1.0.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${java.faker.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
-            <groupId>com.jayway.restassured</groupId>
-            <artifactId>json-schema-validator</artifactId>
-            <version>2.4.1</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

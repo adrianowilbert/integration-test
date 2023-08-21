@@ -2,14 +2,6 @@ target/
 .mvn/
 .vscode
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -19,9 +11,3 @@ target/
 ### Allure ###
 .allure
 allure-results/
-
-### Load Test ###
-src/load-test/docker/cache
-src/load-test/docker/grafana/plugins
-src/load-test/docker/grafana/data/sessions
-src/load-test/results

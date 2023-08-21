@@ -1,0 +1,21 @@
+#!groovy
+import jenkins.Notification;
+
+node('integration-tests') { #!aba dos testes dento do jenkins
+
+    def _notificationTest = new Notification('adrianowilbert@gmail.com', env) #!email para recebimento do relatório
+    _notificationTest.notifyStarted()
+
+    integrationTestsWithAllure {
+        mavenArgs = '-Dproject.build.sourceEncoding=UTF-8 -Denv=DSV -Dtest=AllSuites' #!comando maven com categorias
+        repositoryUrl = 'https://github.com/adrianowilbert/integration-test.git' #!repositório git
+        branch = 'master' #!branch que é executada no momento dos testes
+        notification = _notificationTest
+    }
+
+    if (currentBuild.result == 'UNSTABLE' || currentBuild.result == 'FAILED' ) {
+        _notificationTest.notifyFailed()
+    } else {
+        _notificationTest.notifySuccessful()
+    }
+}
