@@ -1,0 +1,12 @@
+config:
+  ambiente: dsv
+  ambientes:
+    - # Ambiente de desenvolvimento
+      nome: dsv
+      baseUrl: "https://serverest.dev"
+    - # Ambiente de homologação
+      nome: hml
+      baseUrl: "http:link.do.ambiente-de-homologacao"
+    - # Ambiente de produção
+      nome: prd
+      baseUrl: "http:link.do.ambiente-de-producao"
